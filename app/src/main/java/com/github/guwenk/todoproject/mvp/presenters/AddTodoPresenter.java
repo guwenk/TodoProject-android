@@ -57,6 +57,6 @@ public class AddTodoPresenter extends MvpPresenter<AddTodoView> {
     }
 
     public void responseAddTodoError() {
-
+        getViewState().showErrorUpload();
     }
 }
