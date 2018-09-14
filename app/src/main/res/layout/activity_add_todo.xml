@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.AddTodoActivity">
+
+    <View
+        android:id="@+id/add_todo_divider1"
+        android:background="@color/systemBlackColor"
+        android:layout_height="1px"
+        android:layout_width="fill_parent"/>
+
+    <TextView
+        android:id="@+id/add_todo_separator_todo_title"
+        fontPath="fonts/OpenSans-Semibold.ttf"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_below="@id/add_todo_divider1"
+        android:text="Задача"
+        android:textSize="16sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000"
+        android:visibility="visible"
+        tools:ignore="MissingPrefix" />
+
+    <View
+        android:id="@+id/add_todo_divider2"
+        android:background="@color/systemBlackColor"
+        android:layout_height="1px"
+        android:layout_below="@id/add_todo_separator_todo_title"
+        android:layout_width="fill_parent"/>
+
+    <EditText
+        android:id="@+id/add_todo_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_todo_divider2"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/todo_name"
+        android:padding="12dp"
+        android:background="@color/systemWhiteColor"
+        android:textSize="18sp"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <View
+        android:id="@+id/add_todo_divider3"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_todo_editText"
+        android:background="@color/systemBlackColor" />
+
+    <TextView
+        android:id="@+id/add_todo_separator_categories"
+        fontPath="fonts/OpenSans-Semibold.ttf"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_todo_divider3"
+        android:padding="8dp"
+        android:text="@string/category"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:visibility="visible"
+        tools:ignore="MissingPrefix" />
+
+    <View
+        android:id="@+id/add_todo_divider4"
+        android:background="@color/systemBlackColor"
+        android:layout_height="1px"
+        android:layout_below="@id/add_todo_separator_categories"
+        android:layout_width="fill_parent"/>
+
+    <ListView
+        android:id="@+id/add_todo_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_todo_divider4" />
+</RelativeLayout>
