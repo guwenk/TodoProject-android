@@ -12,4 +12,8 @@ public interface AddTodoView extends MvpView {
     void showErrorUpload();
 
     void addCategory(String category);
+
+    void showProgressDialog();
+
+    void hideProgressDialog();
 }

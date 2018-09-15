@@ -15,6 +15,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
     private boolean isInitialized = false;
     private ProjectItem[] projectItems;
 
+    public ProjectItem[] getProjectItems() {
+        return projectItems;
+    }
+
     public boolean isInitialized() {
         return isInitialized;
     }
@@ -58,9 +62,5 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     public void responseTodoStatusError() {
         getViewState().updateTodoStatusError();
-    }
-
-    public void startAddTodoActivity() {
-        getViewState().startAddTodoActivity(projectItems);
     }
 }

@@ -1,5 +1,6 @@
 package com.github.guwenk.todoproject.ui.activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,6 +33,8 @@ public class AddTodoActivity extends MvpAppCompatActivity implements AddTodoView
 
     ArrayAdapter<String> mAdapter;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,10 @@ public class AddTodoActivity extends MvpAppCompatActivity implements AddTodoView
                 mAddTodoPresenter.setCategory(position + 1);
             }
         });
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Отправка данных...");
+        progressDialog.setCancelable(false);
 
         EditText editText = findViewById(R.id.add_todo_editText);
         editText.addTextChangedListener(new TextWatcher() {
@@ -137,5 +144,15 @@ public class AddTodoActivity extends MvpAppCompatActivity implements AddTodoView
     @Override
     public void addCategory(String category) {
         mAdapter.add(category);
+    }
+
+    @Override
+    public void showProgressDialog() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        progressDialog.dismiss();
     }
 }

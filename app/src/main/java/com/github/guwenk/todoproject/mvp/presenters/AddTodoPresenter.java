@@ -41,6 +41,7 @@ public class AddTodoPresenter extends MvpPresenter<AddTodoView> {
             getViewState().showErrorCategory();
             return;
         }
+        getViewState().showProgressDialog();
         new AddTodoModel(mContext, this).requestAddTodo(project_id, text);
     }
 
@@ -53,10 +54,12 @@ public class AddTodoPresenter extends MvpPresenter<AddTodoView> {
     }
 
     public void responseAddTodo() {
+        getViewState().hideProgressDialog();
         getViewState().finishActivity();
     }
 
     public void responseAddTodoError() {
+        getViewState().hideProgressDialog();
         getViewState().showErrorUpload();
     }
 }

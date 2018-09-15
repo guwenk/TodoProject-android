@@ -14,7 +14,6 @@ import com.github.guwenk.todoproject.R;
 import com.github.guwenk.todoproject.mvp.presenters.MainPresenter;
 import com.github.guwenk.todoproject.mvp.views.MainView;
 import com.github.guwenk.todoproject.ui.adapters.TodoListAdapter;
-import com.github.guwenk.todoproject.ui.items.ProjectItem;
 import com.github.guwenk.todoproject.ui.items.TodoItem;
 import com.google.gson.Gson;
 
@@ -51,12 +50,13 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     }
 
     public void fabOnClick(View view) {
-        mMainPresenter.startAddTodoActivity();
+        Intent intent = new Intent(MainActivity.this, AddTodoActivity.class);
+        intent.putExtra("obj", new Gson().toJson(mMainPresenter.getProjectItems()));
+        startActivityForResult(intent, ADD_TODO_REQUEST_CODE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
         if (data == null) return;
         if (data.getBooleanExtra("updated", true))
             mMainPresenter.requestData();
@@ -122,12 +122,5 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         findViewById(R.id.main_progressBar).setVisibility(View.GONE);
         findViewById(R.id.main_try_again_button).setVisibility(View.VISIBLE);
         findViewById(R.id.main_errorTV).setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void startAddTodoActivity(ProjectItem[] projectItems) {
-        Intent intent = new Intent(MainActivity.this, AddTodoActivity.class);
-        intent.putExtra("obj", new Gson().toJson(projectItems));
-        startActivityForResult(intent, ADD_TODO_REQUEST_CODE);
     }
 }

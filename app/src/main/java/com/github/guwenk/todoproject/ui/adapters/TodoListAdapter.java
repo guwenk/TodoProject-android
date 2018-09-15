@@ -47,6 +47,7 @@ public class TodoListAdapter extends BaseAdapter {
     }
 
     public void clearData() {
+        sectionHeader.clear();
         mData.clear();
     }
 

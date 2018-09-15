@@ -20,6 +20,4 @@ public interface MainView extends MvpView {
     void showProgressBar();
 
     void showTryAgainButton();
-
-    void startAddTodoActivity(ProjectItem[] projectItems);
 }

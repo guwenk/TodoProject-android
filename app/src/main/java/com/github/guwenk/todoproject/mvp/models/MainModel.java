@@ -1,7 +1,6 @@
 package com.github.guwenk.todoproject.mvp.models;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.github.guwenk.todoproject.R;
 import com.github.guwenk.todoproject.mvp.presenters.MainPresenter;
@@ -29,7 +28,6 @@ public class MainModel {
                     @Override
                     public void onCompleted(Exception e, JsonArray result) {
                         if (e == null) {
-                            Log.d("JSON", result.toString());
                             String json = result.toString();
                             Gson gson = new Gson();
                             ProjectItem[] projectItems = gson.fromJson(json, ProjectItem[].class);
